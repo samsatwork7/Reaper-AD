@@ -1,74 +1,160 @@
-# 🔥 ReaperAD v3.0 - Active Directory Exploitation Framework
+# 🔥 Reaper-AD v4.0
 
-![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows-lightgrey.svg)
+**Complete Active Directory Exploitation Framework**
 
-**ReaperAD** is a comprehensive, production-ready Active Directory exploitation framework designed for authorized security testing. It automates the complete attack chain from reconnaissance to domain compromise with built-in safety controls.
+![Python](https://img.shields.io/badge/python-3.8+-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Version](https://img.shields.io/badge/version-4.0-red)
+![GitHub](https://img.shields.io/github/repo-size/samsatwork7/Reaper-AD)
 
-## 🚨 **CRITICAL DISCLAIMER**
+A **production-ready** AD security tool with **real attack implementations** - not just a framework. From discovery to domain dominance with built-in safety controls.
 
-> ⚠️ **FOR AUTHORIZED TESTING ONLY**
-> 
-> This tool is intended for:
-> - Legitimate penetration testing with **written permission**
-> - Security research in controlled lab environments
-> - Educational purposes
-> - Defensive security training
-> 
-> **Unauthorized use is illegal and unethical.** You must comply with:
-> - Computer Fraud and Abuse Act (CFAA)
-> - Applicable data protection laws
-> - Organization security policies
+---
 
-## 🛡️ **Built-in Safety Features**
+## 🚀 Features
 
-ReaperAD prioritizes safety with multiple protective mechanisms:
+### ✅ **6 Complete Attack Modules**
+- **🔍 Discovery** - Real LDAP/SMB/DNS enumeration
+- **🔐 Credential Harvesting** - AS-REP roasting, Kerberoasting, intelligent password spraying
+- **⚡ Privilege Escalation** - Group analysis and permission checking
+- **🔄 Lateral Movement** - Admin share access testing
+- **🎯 Persistence** - Backdoor mechanism simulation
+- **📊 Reporting** - JSON evidence with attack chain
 
-✅ **No Account Lockouts**: Intelligent password spraying avoids lockout policies  
-✅ **Rate Limiting**: Configurable delays between requests  
-✅ **Attempt Caps**: Maximum 500 total authentication attempts  
-✅ **Stealth Mode**: Random jitter (1-3 seconds) between operations  
-✅ **Read-Only Operations**: No modifications to target systems  
-✅ **Session Management**: Minimizes authentication attempts  
+### 🛡️ **Safety First**
+- **Smart rate limiting** (prevents DoS & detection)
+- **Lockout avoidance** (intelligent password spraying)
+- **User confirmation** (mandatory before execution)
+- **Stealth mode** (random delays, reduced signature)
+- **Read-only by default** (safe for initial assessment)
 
-## 📊 **Features**
+---
 
-### 1. **Discovery & Enumeration**
-- LDAP anonymous bind detection
-- DNS-based domain controller discovery
-- SMB signing configuration analysis
-- User/group enumeration
-
-### 2. **Credential Acquisition**
-- **AS-REP Roasting**: Zero-credential attack against misconfigured accounts
-- **Intelligent Password Spraying**: Safe, rate-limited credential testing
-- **Kerberoasting**: Service account hash extraction (requires credentials)
-
-### 3. **Privilege Escalation & Domain Compromise**
-- **DCSync Attack**: Domain replication for hash dumping
-- **Session Management**: Credential caching and reuse
-- **Comprehensive Reporting**: JSON and console output
-
-## 🚀 **Installation**
-
-### Prerequisites
-- Python 3.8 or higher
-- Kali Linux or similar security distribution
-
-## 🛠️ Installation
+## 📦 Quick Start
 
 ```bash
-# 1. Clone repository
+# Clone & setup
 git clone https://github.com/samsatwork7/Reaper-AD.git
 cd Reaper-AD
-
-# 2. Create virtual environment (RECOMMENDED)
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Run tool
+# Test installation
 python reaperad.py --help
+
+# Safe discovery test
+python reaperad.py example.com
+
+# Complete attack chain (simulated)
+python reaperad.py test.local --all
+```
+
+---
+
+## 🎯 Usage Examples
+
+```bash
+# Complete attack with credentials
+python reaperad.py dc.corp.local --all -d CORP -u admin -p "Password123"
+
+# Stealth mode
+python reaperad.py 192.168.1.10 --stealth --threads 3
+
+# Hash-based authentication
+python reaperad.py target.local -H aad3b...:... --all
+```
+
+---
+
+## 📁 Project Structure
+
+```
+Reaper-AD/
+├── reaperad.py              # Main executable
+├── modules/                 # 6 Attack modules
+│   ├── discovery.py        # Network enumeration
+│   ├── credential.py       # Credential attacks
+│   ├── privilege.py        # Escalation analysis
+│   ├── lateral.py          # Movement testing
+│   ├── persistence.py      # Persistence mechanisms
+│   └── reporting.py        # JSON reporting
+├── requirements.txt        # Dependencies
+└── README.md              # This file
+```
+
+---
+
+## ⚙️ Command Line Options
+
+```bash
+Required:
+  target                  Target Domain Controller
+
+Authentication:
+  -u, --username USERNAME
+  -p, --password PASSWORD
+  -d, --domain DOMAIN
+  -H, --hashes HASHES      NTLM hashes (LM:NT)
+
+Execution:
+  --all                   Run complete attack chain
+  --stealth               Stealth mode (slower)
+  --threads THREADS       Concurrent threads (default: 5)
+  --output OUTPUT         Output directory
+```
+
+---
+
+## 🧪 Verification
+
+```bash
+# Test all modules
+python -c "
+import sys
+sys.path.insert(0, 'modules')
+for m in ['discovery','credential','privilege','lateral','persistence','reporting']:
+    __import__(m); print(f'✅ {m}.py')
+"
+
+# Run verification script
+python verify_installation.py
+```
+
+---
+
+## ⚠️ Legal & Ethical Use
+
+**FOR AUTHORIZED TESTING ONLY**
+
+This tool requires:
+- ✅ Written permission from system owner
+- ✅ Defined scope and Rules of Engagement
+- ✅ Compliance with applicable laws (CFAA, GDPR, etc.)
+- ✅ Ethical and responsible usage
+
+**Unauthorized use is illegal and unethical.**
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Add tests for new functionality
+4. Submit a Pull Request
+
+---
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+---
+
+**Built for professionals, by professionals.**  
+**Use responsibly. Test ethically.**
+
+---
+
+**GitHub:** https://github.com/samsatwork7/Reaper-AD  
+**Version:** 4.0 (Complete Release)  
+**Status:** ✅ Production Ready
