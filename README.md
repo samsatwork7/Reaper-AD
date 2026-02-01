@@ -65,23 +65,6 @@ python reaperad.py target.local -H aad3b...:... --all
 
 ---
 
-## 📁 Project Structure
-
-```
-Reaper-AD/
-├── reaperad.py              # Main executable
-├── modules/                 # 6 Attack modules
-│   ├── discovery.py        # Network enumeration
-│   ├── credential.py       # Credential attacks
-│   ├── privilege.py        # Escalation analysis
-│   ├── lateral.py          # Movement testing
-│   ├── persistence.py      # Persistence mechanisms
-│   └── reporting.py        # JSON reporting
-├── requirements.txt        # Dependencies
-└── README.md              # This file
-```
-
----
 
 ## ⚙️ Command Line Options
 
@@ -157,4 +140,3 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 **GitHub:** https://github.com/samsatwork7/Reaper-AD  
 **Version:** 4.0 (Complete Release)  
-**Status:** ✅ Production Ready
