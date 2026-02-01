@@ -56,14 +56,19 @@ ReaperAD prioritizes safety with multiple protective mechanisms:
 - Python 3.8 or higher
 - Kali Linux or similar security distribution
 
-### Quick Install
-```bash
-# Clone repository
-git clone https://github.com/samsatwork7/Reaper-AD.git
-cd reaperad
+## 🛠️ Installation
 
-# Install dependencies
+```bash
+# 1. Clone repository
+git clone https://github.com/samsatwork7/Reaper-AD.git
+cd Reaper-AD
+
+# 2. Create virtual environment (RECOMMENDED)
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# 3. Install dependencies
 pip install -r requirements.txt
 
-# Run tool
+# 4. Run tool
 python reaperad.py --help
