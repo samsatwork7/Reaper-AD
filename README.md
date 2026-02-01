@@ -59,7 +59,7 @@ ReaperAD prioritizes safety with multiple protective mechanisms:
 ### Quick Install
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/reaperad.git
+git clone https://github.com/samsatwork7/Reaper-AD.git
 cd reaperad
 
 # Install dependencies
