@@ -1,5 +1,3 @@
-# .gitignore for ReaperAD
-
 # Python
 __pycache__/
 *.py[cod]
@@ -11,6 +9,12 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+venv/
 
 # IDE
 .vscode/
@@ -49,8 +53,6 @@ hashes.txt
 *.log
 logs/
 
-# Testing
-.tox/
-.coverage
-htmlcov/
-.pytest_cache/
+# Build artifacts
+build/
+*.egg-info/
